@@ -1,0 +1,1 @@
+_JavaFX application_ for storing person's FirstName, LastName, Phone Number and Notes
