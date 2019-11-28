@@ -1,11 +1,10 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.collections.FXCollections?>
-<?import sample.Contact?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import sample.Contact?>
+<?import javafx.geometry.Insets?>
 <BorderPane fx:controller="sample.Controller" xmlns:fx="helloWorld">
     <center>
         <TableView fx:id="tableView">
@@ -47,4 +46,16 @@
             </sortOrder>
         </TableView>
     </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets bottom="5" top="5"/>
+            </padding>
+            <TextField fx:id="firstNameField" promptText="First Name" prefWidth="80"/>
+            <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="80"/>
+            <TextField fx:id="phoneNumberField" promptText="Phone Number" prefWidth="100"/>
+            <TextField fx:id="notesField" promptText="Enter a note" prefWidth="150"/>
+            <Button text="Add" onAction="#addPerson"/>
+        </HBox>
+    </bottom>
 </BorderPane>
