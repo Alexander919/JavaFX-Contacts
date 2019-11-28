@@ -6,13 +6,13 @@ public class Contact {
     private final SimpleStringProperty firstName = new SimpleStringProperty("");
     private final SimpleStringProperty lastName = new SimpleStringProperty("");
     private final SimpleStringProperty phoneNumber = new SimpleStringProperty("");
-    private final SimpleStringProperty notes = new SimpleStringProperty("");
+    private final SimpleStringProperty contactNotes = new SimpleStringProperty("");
 
     public Contact(String fN, String lN, String pN, String n) {
         setFirstName(fN);
         setLastName(lN);
         setPhoneNumber(pN);
-        setNotes(n);
+        setContactNotes(n);
     }
     public Contact() {
         this("", "", "", "");
@@ -29,8 +29,8 @@ public class Contact {
         this.phoneNumber.set(phoneNumber);
     }
 
-    public void setNotes(String notes) {
-        this.notes.set(notes);
+    public void setContactNotes(String notes) {
+        this.contactNotes.set(notes);
     }
 
     public String getFirstName() {
@@ -45,7 +45,7 @@ public class Contact {
         return phoneNumber.get();
     }
 
-    public String getNotes() {
-        return notes.get();
+    public String getContactNotes() {
+        return contactNotes.get();
     }
 }
