@@ -1,0 +1,50 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
+<?import sample.Contact?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane fx:controller="sample.Controller" xmlns:fx="helloWorld">
+    <center>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="120">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Last Name" prefWidth="120">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastName"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Phone Number" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Notes" prefWidth="200">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="notes"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Contact firstName="Jacob" lastName="Smith" phoneNumber="123456" notes="hello world"/>
+                    <Contact firstName="Isabella" lastName="Johnson" phoneNumber="123456" notes="hello world"/>
+                    <Contact firstName="Ethan" lastName="Williams" phoneNumber="123456" notes="hello world"/>
+                    <Contact firstName="Michael" lastName="Brown" phoneNumber="123456" notes="hello world"/>
+                </FXCollections>
+            </items>
+            <sortOrder>
+                <fx:reference source="firstNameColumn"/>
+            </sortOrder>
+        </TableView>
+    </center>
+</BorderPane>
