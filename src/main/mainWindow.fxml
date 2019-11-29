@@ -72,6 +72,7 @@
                 <padding>
                     <Insets bottom="5" top="5"/>
                 </padding>
+                <!-- todo highlight textfield with red when empty -->
                 <TextField fx:id="firstNameField" promptText="First Name" prefWidth="80"/>
                 <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="80"/>
                 <TextField fx:id="phoneNumberField" promptText="Phone Number" prefWidth="100"/>

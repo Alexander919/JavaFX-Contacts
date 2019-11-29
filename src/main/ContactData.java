@@ -34,7 +34,7 @@ public class ContactData {
     }
 
     public void loadContactList(File file) {
-
+        //todo Implement loadContactList
     }
 
     public void openFileChooser(BorderPane bp, String what) throws IOException {

@@ -1,15 +1,12 @@
 package main;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.FileChooser;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -30,6 +27,7 @@ public class Controller {
 //        setTestingValues();
         tableView.setItems(ContactData.getInstance().getObservableList());
     }
+//todo Implement New functionality. Just empty contact list and reset all paths
 
 //    public void setTestingValues() {
 //        observableList = FXCollections.observableArrayList(
@@ -62,7 +60,7 @@ public class Controller {
 
     public void aboutPopUp(ActionEvent actionEvent) {
         Dialog<ButtonType> dialog = createDialog("About");
-        FXMLLoader fxmlLoader = createFXMLloader("about.fxml");
+        FXMLLoader fxmlLoader = createFXMLLoaded("about.fxml");
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
         } catch (IOException e) {
@@ -72,7 +70,10 @@ public class Controller {
 //        System.out.println(tableView.getSelectionModel().getSelectedItem().getFirstName());
 
     }
-    public FXMLLoader createFXMLloader(String fxml) {
+
+    //todo Implement Help
+
+    public FXMLLoader createFXMLLoaded(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource(fxml));
         return fxmlLoader;
@@ -90,4 +91,7 @@ public class Controller {
     public void saveList(ActionEvent actionEvent) throws IOException {
         ContactData.getInstance().openFileChooser(borderPane, "save");
     }
+    //todo implement loadList method
+
+    //todo implement modifiable cells
 }
