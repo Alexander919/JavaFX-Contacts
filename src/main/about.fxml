@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane minHeight="-Infinity" prefHeight="130.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AboutController">
+
+    <content>
+        <BorderPane>
+            <top>
+                <Label text="Simple Contacts" BorderPane.alignment="TOP_CENTER">
+                    <font>
+                        <Font name="Verdana Bold" size="14" />
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox prefWidth="250" spacing="10">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                    <Label fx:id="version" text="Application version: " />
+                    <Text wrappingWidth="200">
+                        This is my very simple Contacts program which I wrote just for fun.
+                    </Text>
+                </VBox>
+            </center>
+         <right>
+                <Label BorderPane.alignment="CENTER">
+                    <graphic>
+                        <ImageView fitHeight="50" fitWidth="50">
+                            <Image url="@/logo.png" />
+                        </ImageView>
+                    </graphic>
+                </Label>
+         </right>
+        </BorderPane>
+    </content>
+
+</DialogPane>
