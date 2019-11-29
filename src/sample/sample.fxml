@@ -33,14 +33,14 @@
                     </cellValueFactory>
                 </TableColumn>
             </columns>
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <Contact firstName="Jacob" lastName="Smith" phoneNumber="123456" contactNotes="hello world"/>
-                    <Contact firstName="Isabella" lastName="Johnson" phoneNumber="123456" contactNotes="hello world"/>
-                    <Contact firstName="Ethan" lastName="Williams" phoneNumber="123456" contactNotes="hello world"/>
-                    <Contact firstName="Michael" lastName="Brown" phoneNumber="123456" contactNotes="hello world"/>
-                </FXCollections>
-            </items>
+<!--            <items>-->
+<!--                <FXCollections fx:factory="observableArrayList">-->
+<!--                    <Contact firstName="Jacob" lastName="Smith" phoneNumber="123456" contactNotes="hello world"/>-->
+<!--                    <Contact firstName="Isabella" lastName="Johnson" phoneNumber="123456" contactNotes="hello world"/>-->
+<!--                    <Contact firstName="Ethan" lastName="Williams" phoneNumber="123456" contactNotes="hello world"/>-->
+<!--                    <Contact firstName="Michael" lastName="Brown" phoneNumber="123456" contactNotes="hello world"/>-->
+<!--                </FXCollections>-->
+<!--            </items>-->
             <sortOrder>
                 <fx:reference source="firstNameColumn"/>
             </sortOrder>
