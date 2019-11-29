@@ -44,6 +44,10 @@ public class ContactData {
 
         if (what.equals("save")) {
             file = fc.showSaveDialog(window);
+            if (file != null) {
+                //set location of the file
+                fileLocation = file;
+            }
             saveContactList(file);
         } else {
             file = fc.showOpenDialog(window);
@@ -54,7 +58,6 @@ public class ContactData {
     public void saveContactList(File file) throws IOException {
         //user pressed cancel
         if (file == null) return;
-        fileLocation = file;
 
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
         for (Contact contact : observableList) {
