@@ -7,7 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -20,32 +22,38 @@ public class Controller {
     public MenuItem exitMenuItem;
     public MenuItem aboutMenuItem;
     public BorderPane borderPane;
-    ObservableList<Contact> observableList;
+    public MenuItem saveMenuItem;
+//    ObservableList<Contact> observableList;
 
 
     public void initialize() {
-        setTestingValues();
+//        setTestingValues();
+        tableView.setItems(ContactData.getInstance().getObservableList());
     }
 
+//    public void setTestingValues() {
+//        observableList = FXCollections.observableArrayList(
+//                new Contact("John", "Smith", "123456", "hello John"),
+//                new Contact("Mary", "Doe", "654321", "hello Mary"),
+//                new Contact("Isabella", "Williams", "2346541", "hello Isabella"),
+//                new Contact("Alex", "Brown", "7890123", "how you doing?")
+//        );
+//    }
+
+    //adds a Person object to the ObservableList when you press the Add button
     public void addPerson(ActionEvent actionEvent) {
         ObservableList<Contact> data = tableView.getItems();
         data.add(new Contact(firstNameField.getText(), lastNameField.getText(),
                 phoneNumberField.getText(), notesField.getText()));
 
+        clearFields();
+    }
+
+    public void clearFields() {
         firstNameField.setText("");
         lastNameField.setText("");
         phoneNumberField.setText("");
         notesField.setText("");
-    }
-
-    public void setTestingValues() {
-        observableList = FXCollections.observableArrayList(
-                new Contact("John", "Smith", "123456", "hello John"),
-                new Contact("Mary", "Doe", "654321", "hello Mary"),
-                new Contact("Isabella", "Williams", "2346541", "hello Isabella"),
-                new Contact("Alex", "Brown", "7890123", "how you doing?")
-        );
-        tableView.setItems(observableList);
     }
 
     public void exitApp(ActionEvent actionEvent) {
@@ -76,8 +84,10 @@ public class Controller {
         dialog.setTitle(title);
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
         return dialog;
+    }
+
+    public void saveList(ActionEvent actionEvent) throws IOException {
+        ContactData.getInstance().openFileChooser(borderPane, "save");
     }
 }

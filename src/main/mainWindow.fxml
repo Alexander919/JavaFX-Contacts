@@ -10,7 +10,7 @@
                 <items>
                     <MenuItem text="New"/>
                     <MenuItem text="Load"/>
-                    <MenuItem text="Save to File"/>
+                    <MenuItem fx:id="saveMenuItem" onAction="#saveList" text="Save to File"/>
                     <SeparatorMenuItem/>
                     <MenuItem fx:id="exitMenuItem" onAction="#exitApp" text="Exit"/>
                 </items>
