@@ -22,7 +22,7 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
-        ContactData.getInstance().saveContactList(ContactData.contactsFile);
+        ContactData.getInstance().saveContactList(ContactData.readPathFromLocation());
     }
 
     @Override
