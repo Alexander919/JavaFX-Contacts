@@ -91,6 +91,10 @@ public class Controller {
     public void saveList(ActionEvent actionEvent) throws IOException {
         ContactData.getInstance().openFileChooser(borderPane, "save");
     }
+
+    public void loadList(ActionEvent actionEvent) throws IOException {
+        ContactData.getInstance().openFileChooser(borderPane, "load");
+    }
     //todo implement loadList method
 
     //todo implement modifiable cells
