@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class Main extends Application {
 
     @Override
@@ -13,6 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         primaryStage.setTitle("Simple Contacts");
         primaryStage.setScene(new Scene(root, 550, 300));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
@@ -27,6 +30,10 @@ public class Main extends Application {
 
     @Override
     public void init() throws Exception {
-        ContactData.getInstance().loadContactList(ContactData.readPathFromLocation());
+        ContactData instance = ContactData.getInstance();
+        File contactsFile = ContactData.readPathFromLocation();
+
+        instance.loadContactList(contactsFile);
+        instance.setContactsFile(contactsFile);
     }
 }

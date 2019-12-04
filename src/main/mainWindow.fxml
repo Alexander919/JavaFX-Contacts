@@ -3,12 +3,13 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+
 <BorderPane fx:id="borderPane" fx:controller="main.Controller" xmlns:fx="helloWorld">
     <top>
         <MenuBar>
             <Menu text="File">
                 <items>
-                    <MenuItem text="New"/>
+                    <MenuItem fx:id="newMenuItem" onAction="#newList" text="New"/>
                     <MenuItem fx:id="loadMenuItem" onAction="#loadList" text="Load"/>
                     <MenuItem fx:id="saveMenuItem" onAction="#saveList" text="Save to File"/>
                     <SeparatorMenuItem/>
@@ -25,28 +26,28 @@
         </MenuBar>
     </top>
     <center>
-        <TableView fx:id="tableView">
+        <TableView editable="true" fx:id="tableView" onKeyPressed="#handleKeyPressed">
             <columns>
 
-                <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="120">
+                <TableColumn fx:id="firstNameCol" text="First Name" prefWidth="120">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstName"/>
                     </cellValueFactory>
                 </TableColumn>
 
-                <TableColumn text="Last Name" prefWidth="120">
+                <TableColumn fx:id="lastNameCol" text="Last Name" prefWidth="120">
                     <cellValueFactory>
                         <PropertyValueFactory property="lastName"/>
                     </cellValueFactory>
                 </TableColumn>
 
-                <TableColumn text="Phone Number" prefWidth="100">
+                <TableColumn fx:id="phoneNumCol" text="Phone Number" prefWidth="100">
                     <cellValueFactory>
                         <PropertyValueFactory property="phoneNumber"/>
                     </cellValueFactory>
                 </TableColumn>
 
-                <TableColumn text="Notes" prefWidth="200">
+                <TableColumn fx:id="notesCol" text="Notes" prefWidth="200">
                     <cellValueFactory>
                         <PropertyValueFactory property="contactNotes"/>
                     </cellValueFactory>
@@ -62,22 +63,21 @@
             <!--                </FXCollections>-->
             <!--            </items>-->
             <sortOrder>
-                <fx:reference source="firstNameColumn"/>
+                <fx:reference source="firstNameCol"/>
             </sortOrder>
         </TableView>
     </center>
     <bottom>
         <TitledPane alignment="CENTER" text="Click to add contact" expanded="false">
-            <HBox spacing="10" alignment="CENTER">
+            <HBox spacing="10" alignment="CENTER" onKeyPressed="#handleKeyPressed">
                 <padding>
                     <Insets bottom="5" top="5"/>
                 </padding>
-                <!-- todo highlight textfield with red when empty -->
-                <TextField fx:id="firstNameField" promptText="First Name" prefWidth="80"/>
+                <TextField  fx:id="firstNameField" promptText="First Name" prefWidth="80"/>
                 <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="80"/>
                 <TextField fx:id="phoneNumberField" promptText="Phone Number" prefWidth="100"/>
                 <TextField fx:id="notesField" promptText="Enter a note" prefWidth="150"/>
-                <Button text="Add" onAction="#addPerson"/>
+                <Button text="Add" onAction="#addPerson" prefWidth="70"/>
             </HBox>
         </TitledPane>
     </bottom>
