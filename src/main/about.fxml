@@ -32,7 +32,7 @@
                 <Label BorderPane.alignment="CENTER">
                     <graphic>
                         <ImageView fitHeight="50" fitWidth="50">
-                            <Image url="@/logo.png" />
+                            <Image url="@logo.png"/>
                         </ImageView>
                     </graphic>
                 </Label>
