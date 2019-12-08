@@ -11,7 +11,7 @@
                 <items>
                     <MenuItem fx:id="newMenuItem" onAction="#newList" text="New"/>
                     <MenuItem fx:id="loadMenuItem" onAction="#loadList" text="Load"/>
-                    <MenuItem fx:id="saveMenuItem" onAction="#saveList" text="Save to File"/>
+                    <MenuItem fx:id="saveMenuItem" onAction="#saveList" text="Save as"/>
                     <SeparatorMenuItem/>
                     <MenuItem fx:id="exitMenuItem" onAction="#exitApp" text="Exit"/>
                 </items>

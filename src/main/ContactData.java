@@ -19,11 +19,11 @@ import java.util.Optional;
 
 public class ContactData {
     private int fields = 4;
-    private String defaultContacts = "contacts.dat";
+    private String defaultContacts = "contacts.cnt";
     private static ContactData contactData = new ContactData();
     private ObservableList<Contact> observableList = FXCollections.observableArrayList();
 
-    public static Path location = Paths.get("location.dat");
+    public static Path location = Paths.get("location.loc");
     //saved to the location specified by the user when the program is closed
     //default location is program's location
     public static File contactsFile;
@@ -50,7 +50,7 @@ public class ContactData {
         return observableList;
     }
 
-    //read a path to contacts from location.dat
+    //read a path to contacts from location.loc
     public static File readPathFromLocation() throws IOException {
         BufferedReader br = Files.newBufferedReader(location);
         return new File(br.readLine());
@@ -100,6 +100,7 @@ public class ContactData {
     //opens a FileChooser depending on 'what' parameter
     public void openFileChooser(BorderPane bp, String what) throws IOException {
         FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Contacts File", "*.cnt"));
         Window window = bp.getScene().getWindow();
         File file;
 
@@ -116,9 +117,9 @@ public class ContactData {
 
     public void setPaths(File file) throws IOException {
         setContactsFile(file);
-        //remove all contents of location.dat to keep it a one-liner
+        //remove all contents of location.loc to keep it a one-liner
         BufferedWriter bw = Files.newBufferedWriter(location, StandardOpenOption.TRUNCATE_EXISTING);
-        //update the path to contacts in location.dat
+        //update the path to contacts in location.loc
         bw.write(file.getAbsolutePath());
         bw.flush();
     }
@@ -138,13 +139,6 @@ public class ContactData {
     }
 
     public void newContactList() throws IOException {
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("New contacts list");
-//        alert.setHeaderText("You are about to create a new contacts list.");
-//        alert.setContentText("Do you want to proceed?");
-//
-//        Optional<ButtonType> result = alert.showAndWait();
-
         String title = "New contacts list";
         String header = "You are about to create a new contacts list.";
         String content = "Do you want to proceed?";

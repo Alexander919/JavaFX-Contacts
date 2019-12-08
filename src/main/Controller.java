@@ -113,9 +113,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Optional<ButtonType> result = dialog.showAndWait();
-//        System.out.println(tableView.getSelectionModel().getSelectedItem().getFirstName());
-
+        dialog.showAndWait();
     }
 
     //todo Implement Help
